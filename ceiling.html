@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bank ceiling names</title>
+    <title>Getting Started</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/Rx.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/angular2-polyfills.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.17/angular2-all.umd.dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/container.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/divider.css">
+    <style media="screen" type="text/css">
+      .person {
+        padding: 0px;
+        margin: 0 auto;
+        width: 150px;
+      }
+      .person img {
+        width: 150px;
+        border-radius: 75px;
+      }
+
+      .person .name {
+        text-align: center;
+      }
+
+      section {
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+      }
+
+      .east.column {
+        border-right: 1px solid gray;
+      }
+
+      .west.column {
+        border-left: 1px solid gray;
+      }
+    </style>
+
+    <script>
+      window.ceiling = {data: `[
+      {
+        "west": [
+        {
+          "name": "Joseph Le Conte",
+          "link": "https://en.wikipedia.org/wiki/Joseph_LeConte",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Joseph_LeConte_1823-1901.jpg/220px-Joseph_LeConte_1823-1901.jpg"
+        },
+        {
+          "name": "Martin Kellogg",
+          "link": "https://en.wikipedia.org/wiki/Martin_Kellogg",
+          "image": "http://www.lib.berkeley.edu/uchistory/images/kelloggth13-12b.jpg"
+        },
+        {
+          "name": "Junipero Serra",
+          "link": "https://en.wikipedia.org/wiki/Jun%C3%ADpero_Serra",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Juniperro-serra.jpg"
+        },
+        {
+          "name": "Henry Durant",
+          "link": "https://en.wikipedia.org/wiki/Henry_Durant",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Henry_Durant.jpg/220px-Henry_Durant.jpg"
+        }
+      ],
+        "east": [
+        {
+          "name": "John B. Felton",
+          "link": "https://en.wikipedia.org/wiki/John_B._Felton",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/John_Brooks_Felton_by_Stephen_W_Shaw.jpg/220px-John_Brooks_Felton_by_Stephen_W_Shaw.jpg"
+        },
+        {
+          "name": "Hall McAllister",
+          "link": "https://en.wikipedia.org/wiki/Matthew_Hall_McAllister",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Hall_McAllister_by_Robert_Ingersoll_Aitken_-_San_Francisco%2C_CA_-_DSC02820.JPG/220px-Hall_McAllister_by_Robert_Ingersoll_Aitken_-_San_Francisco%2C_CA_-_DSC02820.JPG"
+        },
+        {
+          "name": "Mariano Vallejo",
+          "link": "https://en.wikipedia.org/wiki/Mariano_Guadalupe_Vallejo",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Mariano_Guadalupe_Vallejo.jpg/220px-Mariano_Guadalupe_Vallejo.jpg"
+        }
+      ]
+      },
+      {
+        "west": [
+        {
+          "name": "Bret Harte",
+          "link": "https://en.wikipedia.org/wiki/Bret_Harte",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Bret_Harte_%28by_Sarony%2C_1872%29.jpg/220px-Bret_Harte_%28by_Sarony%2C_1872%29.jpg"
+        },
+        {
+          "name": "Mark Twain",
+          "link": "https://en.wikipedia.org/wiki/Mark_Twain",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Mark_Twain%2C_Brady-Handy_photo_portrait%2C_Feb_7%2C_1871%2C_cropped.jpg/200px-Mark_Twain%2C_Brady-Handy_photo_portrait%2C_Feb_7%2C_1871%2C_cropped.jpg"
+        },
+        {
+          "name": "Joaquin Miller",
+          "link": "https://en.wikipedia.org/wiki/Joaquin_Miller",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Joaquin_Miller_-_Brady-Handy.jpg/220px-Joaquin_Miller_-_Brady-Handy.jpg"
+        }
+      ],
+        "east": [
+        {
+          "name": "Gaspar Di Portola",
+          "link": "https://en.wikipedia.org/wiki/Gaspar_de_Portol%C3%A1",
+          "image": "https://o.quizlet.com/i/NP41HvykzWpZtlU1y3rNdw.jpg"
+        },
+        {
+          "name": "Jose Figuera (Figueroa?)",
+          "link": "https://en.wikipedia.org/wiki/Jos%C3%A9_Figueroa",
+          "image": "Unknown-Person.jpg"
+        },
+        {
+          "name": "Jas. W. Marshall",
+          "link": "https://en.wikipedia.org/wiki/James_W._Marshall",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/James_Marshall2.jpg/220px-James_Marshall2.jpg"
+        },
+        {
+          "name": "Juan Gabrillo",
+          "link": "http://www.sandiegohistory.org/online_resources/cabrillo.html",
+          "image": "http://www.sandiegohistory.org/sites/default/files/imagecache/bio/biography/cabrillo.jpg"
+        }
+      ]
+      },
+      {
+        "west": [
+        {
+          "name": "Pio Pico",
+          "link": "https://en.wikipedia.org/wiki/P%C3%ADo_Pico",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Pio_Pico.jpg/220px-Pio_Pico.jpg"
+        },
+        {
+          "name": "Steven W. Kearney",
+          "link": "https://en.wikipedia.org/wiki/Stephen_W._Kearny",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Stephen_W._Kearny.jpg/220px-Stephen_W._Kearny.jpg"
+        },
+        {
+          "name": "Juan Alvarado",
+          "link": "https://en.wikipedia.org/wiki/Juan_Bautista_Alvarado",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/JuanBautistaAlvarado.jpg/220px-JuanBautistaAlvarado.jpg"
+        },
+        {
+          "name": "John A. Sutter",
+          "link": "https://en.wikipedia.org/wiki/John_Sutter",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/John_Augustus_Sutter_c1850.jpg/200px-John_Augustus_Sutter_c1850.jpg"
+        }
+      ],
+        "east": [
+        {
+          "name": "Sir Francis Drake",
+          "link": "https://en.wikipedia.org/wiki/Francis_Drake",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/1590_or_later_Marcus_Gheeraerts%2C_Sir_Francis_Drake_Buckland_Abbey%2C_Devon.jpg/220px-1590_or_later_Marcus_Gheeraerts%2C_Sir_Francis_Drake_Buckland_Abbey%2C_Devon.jpg"
+        },
+        {
+          "name": "Vasco Di Balboa",
+          "link": "https://en.wikipedia.org/wiki/Vasco_N%C3%BA%C3%B1ez_de_Balboa",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Balboa.jpg/190px-Balboa.jpg"
+        },
+        {
+          "name": "John C. Fremont",
+          "link": "https://en.wikipedia.org/wiki/John_C._Fr%C3%A9mont",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/JCFr%C3%A9mont.jpg/200px-JCFr%C3%A9mont.jpg"
+        },
+        {
+          "name": "Rezanoff (Nikolai Rezanov)",
+          "link": "https://en.wikipedia.org/wiki/Nikolai_Rezanov",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Rezanov_np.jpg/200px-Rezanov_np.jpg"
+        }
+      ]
+      },
+      {
+        "west": [
+        {
+          "name": "Ferdinand Magellan",
+          "link": "https://en.wikipedia.org/wiki/Ferdinand_Magellan",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ferdinand_Magellan.jpg/220px-Ferdinand_Magellan.jpg"
+        },
+        {
+          "name": "John D. Sloat",
+          "link": "https://en.wikipedia.org/wiki/John_D._Sloat",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/John_D._Sloat.jpg/220px-John_D._Sloat.jpg"
+        },
+        {
+          "name": "Robert F. Stockton",
+          "link": "https://en.wikipedia.org/wiki/Robert_F._Stockton",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/RFStockton.jpg"
+        },
+        {
+          "name": "Winfield Scott",
+          "link": "https://en.wikipedia.org/wiki/Winfield_Scott",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Winfield_Scott_by_Fredricks%2C_1862.jpg/220px-Winfield_Scott_by_Fredricks%2C_1862.jpg"
+        }
+      ],
+        "east": [
+        {
+          "name": "Bishop Nichols",
+          "link": "https://en.wikipedia.org/wiki/William_Ford_Nichols",
+          "image": "./william_ford_nichols.png"
+        },
+        {
+          "name": "Starr King",
+          "link": "https://en.wikipedia.org/wiki/Thomas_Starr_King",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Thomas_Starr_King.png/220px-Thomas_Starr_King.png"
+        },
+        {
+          "name": "John Muir",
+          "link": "https://en.wikipedia.org/wiki/John_Muir",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/John_Muir_c1902.jpg/240px-John_Muir_c1902.jpg"
+        },
+        {
+          "name": "John Bidwell",
+          "link": "https://en.wikipedia.org/wiki/John_Bidwell",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Pd_photo_john_bidwell.jpg"
+        }
+      ]
+      },
+      {
+        "west": [
+        {
+          "name": "H Morse-Stevens",
+          "link": "https://en.wikipedia.org/wiki/H._Morse_Stephens",
+          "image": "http://bancroft.berkeley.edu/Exhibits/bancroft/selling/images/090.jpg"
+        },
+        {
+          "name": "Benjamin Ide Wheeler",
+          "link": "https://en.wikipedia.org/wiki/Benjamin_Ide_Wheeler",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Benjamin_Ide_Wheeler_cph.3b35782.jpg/220px-Benjamin_Ide_Wheeler_cph.3b35782.jpg"
+        },
+        {
+          "name": "Hiram Johnson",
+          "link": "https://en.wikipedia.org/wiki/Hiram_Johnson",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Hiram_Johnson_2.jpg/220px-Hiram_Johnson_2.jpg"
+        },
+        {
+          "name": "Phoebe Hearst",
+          "link": "https://en.wikipedia.org/wiki/Phoebe_Hearst",
+          "image": "https://upload.wikimedia.org/wikipedia/en/8/81/PhoebeAppersonHearst.jpg"
+        }
+      ]
+      }
+      ]
+      `};
+    </script>
+    <script>
+      (function() {
+        var PersonComponent =
+          ng.core.
+            Component({
+              selector: 'person',
+              template: `<div class="person">
+                           <a href="{{info.link}}" target="_blank"><img src="{{info.image}}"/></a>
+                           <div class="name">{{info.name}}</div>
+                         <div>`,
+              inputs: ['info']
+            })
+            .Class ({
+              constructor: function() {}
+            });
+
+        var CeilingPanel =
+          ng.core.
+          Component({
+            selector: 'ceiling-panel',
+            directives: [PersonComponent],
+            template: `<div class="ceiling-panel">
+                         <div class="ui center aligned grid">
+                           <div class="one column row">
+                             <person [info]="people[0]"></person>
+                           </div>
+                          </div>
+                         <div class="ui grid equal width" *ngIf="people.length === 4">
+                           <div class="row">
+                             <div class="column">
+                               <div class="ui segment">
+                                 <div class="ui one column grid centered">
+                                   <div class="column">
+                                     <person [info]="people[3]"></person>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="column">
+                               <div class="ui segment">
+                                 <div class="ui one column grid centered">
+                                   <div class="column">
+                                    <person [info]="people[1]"></person>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="ui container grid aligned center two column" *ngIf="people.length === 3">
+                           <div class="column">
+                             <div>&nbsp;</div>
+                           </div>
+                           <div class="column">
+                             <person [info]="people[1]"></person>
+                           </div>
+                         </div>
+                         <div class="ui center aligned container grid one column">
+                           <div class="column">
+                             <person [info]="people[2]"></person>
+                           </div>
+                         </div>
+                       <div>`,
+            inputs: ['people']
+        })
+            .Class ({
+          constructor: function() {
+          }
+        });
+
+        var CeilingApp =
+          ng.core.
+          Component({
+            selector: 'ceiling-app',
+            template: `<h1>Bank Ceiling WikipediaCeiling Viewer</h1>
+                       <section *ngFor="let row of data; let i = index">
+                         <div class="ui equal width grid">
+                           <div class="row">
+                             <div class="east column">
+                               <div class="ui segment">
+                                 <ceiling-panel *ngIf="row.east" [people]="row.east">
+                                 </ceiling-panel>
+                               </div>
+                             </div>
+                             <div class="west column">
+                               <div class="ui segment">
+                                 <ceiling-panel *ngIf="row.west" [people]="row.west">
+                                 </ceiling-panel>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </section>`,
+            directives: [CeilingPanel]
+          })
+            .Class ({
+              constructor: function() {
+                this.data = JSON.parse(window.ceiling.data);
+              }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+          ng.platform.browser.bootstrap(CeilingApp);
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <ceiling-app>Wait for it...</ceiling-app>
+  </body>
+</html>
